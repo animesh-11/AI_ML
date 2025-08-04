@@ -24,6 +24,7 @@ def gcd(a, b):
       gcd_val = i
   return gcd_val
 
+print(gcd(num1, num2))
 
 """
 Write a program to find whether a number is prime or not.
@@ -47,4 +48,4 @@ def is_prime(n):
 # Print the output
 print(is_prime(num))
 
-print(gcd(num1, num2))
+
