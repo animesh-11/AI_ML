@@ -314,3 +314,180 @@ def sum_of_digits(n):
        
 # Print the output
 print(sum_of_digits(n))
+
+
+"""
+ Write a function that checks whether a number is an Armstrong number. A number is Armstrong if the sum of the cubes of its digits is equal to the number itself.
+"""
+
+#Taking input
+num = int(input())
+
+def is_armstrong(num):
+    if num < 0 or num > 9999:
+        return "No"
+
+    original_num = num
+    sum_of_cubes = 0
+
+  # Calculate the number of digits
+    num_str = str(num)
+    num_digits = len(num_str)
+
+  # Calculate the sum of cubes of digits
+    for digit_char in num_str:
+        digit = int(digit_char)
+        sum_of_cubes += digit ** num_digits # Use num_digits for power
+
+  # Check if it's an Armstrong number
+    if sum_of_cubes == original_num:
+        return "Yes"
+    else:
+        return "No"
+
+     
+# Print the output
+print(is_armstrong(num))
+
+
+"""
+Write a function 'compute_values(n)' that returns the Square, Cube, and Double of a number n. Use multiple return values and unpack them in the main program.
+"""
+# Taking input
+n = int(input())
+
+def compute_values(n):
+    if (n >= -100) and (n<= 100):
+        s = n ** 2
+        c = n ** 3
+        d = n * 2
+        return s, c, d
+   
+s, c, d = compute_values(n)
+
+# Print the output
+print(s, c, d)
+
+"""
+Write a Recursive Function 'digit_product(n)' that returns the product of all digits in the number n.
+"""
+# Taking input
+n = int(input())
+
+def digit_product(n):
+    if (n >= 0) and (n <= 100000):
+        if n < 10:
+            return n
+        else:
+             return (n % 10) * digit_product(n // 10)
+    
+   
+# Print the output
+print(digit_product(n))
+
+"""
+Write a function 'calculator(x, y, op)' that takes two numbers and an operator ('+', '-', '*', '/') and returns the result of applying the operator. Assume valid input.
+"""
+# Taking input
+x = int(input())
+y = int(input())
+op = input()
+
+def calculator(x, y, op):
+    if (x >= -100) and (y <= 100):
+        if op == '+':
+            return x + y
+        elif op == '-':
+            return x - y
+        elif op == '*':
+            return x * y
+        elif op == '/':
+    # Assuming b != 0 based on constraints
+            return x / y
+        else:
+            return "Invalid operator"
+    
+
+# Print the output
+print(calculator(x, y, op))
+
+
+"""
+Given a positive integer N, write a program to print an odd numerical pattern consisting of N rows.
+
+
+
+The pattern starts with the number 1. For each subsequent row, the sequence of odd numbers continues from where the previous row left off. Specifically:
+
+The first row will contain the 1st odd number.
+The second row will contain the next two odd numbers (the 2nd and 3rd in the overall sequence).
+The third row will contain the next three odd numbers (the 4th, 5th, and 6th in the overall sequence), and so on.
+In general, row i (from 1 to N) should contain i consecutive odd numbers from the ongoing sequence. The numbers within each row should be printed in a right-aligned manner.
+
+
+Input Format:
+
+A single integer N (1 ≤ N ≤ 15), representing the number of rows.
+"""
+# Taking input
+N = int(input())
+
+def print_pattern(N):
+    odd = 1  # Start with the first odd number
+    rows = []
+    for i in range(1, N + 1):
+        row_output = ""
+        for j in range(i):
+            row_output += str(odd) + " "
+            odd += 2
+        rows.append(row_output.rstrip())
+    for row in rows:
+        print(row)
+
+# Print the output
+print_pattern(N)
+
+"""
+Write a program that prints an N x N Identity Matrix Pattern.
+
+
+
+An Identity Matrix is a square matrix where all the elements on the main diagonal (from the top-left to the bottom-right corner) are 1, and all other elements are 0.
+"""
+# Taking input
+N = int(input())
+
+for i in range(N):
+    row_output = ""
+    # Iterate through each column in the current row
+    for j in range(N):
+        # Check if the current position is on the main diagonal
+        if i == j:
+            row_output += "1"
+        else:
+            row_output += "0"
+        # Add a space after each element except the last one in the row
+        if j < N - 1:
+            row_output += " "
+    # Print the completed row
+    print(row_output)
+
+"""
+Write a function 'find_nth_arithmetic_term(a, d, n_term)' that finds the 'n_term-th' value in the arithmetic progression.
+"""
+# Taking input
+a = int(input())
+d = int(input())
+n_term = int(input())
+
+def find_nth_arithmetic_term(a, d, n_term):
+    if (1 <= n_term <= 100):
+        nth_term = a + (n_term - 1) * d
+        return nth_term
+
+         
+# Print the result
+print(find_nth_arithmetic_term(a, d, n_term))
+
+"""
+
