@@ -104,3 +104,47 @@ def traffic_light_action(color):
 traffic_light_action(color)
 
 
+"""
+Write a program to find eligibility of citizenship
+"""
+
+# Taking input
+age = int(input())
+citizenship_input = input()
+
+def is_eligible_to_vote(age, citizenship_input):
+    if (age >= 18):
+      if citizenship_input == "Yes":
+        citizenship = True
+      elif citizenship_input == "No":
+        citizenship = False
+      elif citizenship_input == "True":
+        citizenship = True
+      elif citizenship_input == "False":
+        citizenship = False
+    else:
+      citizenship = False
+      
+    return citizenship
+    
+# Print the output
+print(is_eligible_to_vote(age, citizenship_input))
+
+"""
+Write a program to reverse a number
+"""
+
+# Taking input
+num = int(input())
+
+def reverse_number(n):
+  rev = 0
+  while n > 0:
+    digit = n % 10
+    rev = rev * 10 + digit
+    n = n // 10
+  return rev
+    
+    
+# Print the output
+print(reverse_number(num))
