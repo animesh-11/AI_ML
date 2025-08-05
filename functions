@@ -75,3 +75,32 @@ def classify_triangle(a, b, c):
 
 # Print the output
 print(classify_triangle(side1, side2, side3))
+
+
+"""
+Write a function 'traffic_light_action(color)' that simulates a simple traffic light system with three colors: 'red', 'yellow', and 'green'.
+
+The function should print the corresponding action for each color:
+
+ "red": Print "Stop"
+"yellow": Print "Prepare to stop"
+"green": Print "Go"
+If the input color is invalid, print "Invalid color".
+"""
+# Taking input
+color = input()
+
+def traffic_light_action(color):
+  if color == "red":
+    return "Stop"
+  elif color == "yellow":
+    return "Prepare to stop"
+  elif color == "green":
+    return "Go"
+  else:
+    return "Invalid color"
+     
+# Print the output
+traffic_light_action(color)
+
+
