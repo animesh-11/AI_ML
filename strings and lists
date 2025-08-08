@@ -1,6 +1,8 @@
+
+Write a program to perform basic string compression using the counts of repeated characters. For each group of consecutive repeating characters in the input string, replace it with the character followed by the number of repetitions. If the compressed string is not shorter than the original string, return the original string.
+
 # Taking Input
-#s = input()
-s = "aabbccddeeeee"
+s = input()
 # Write your code here
 c=""
 count = 1
@@ -12,9 +14,12 @@ for i in range(1, len(s)):
     count = 1
 
 c += s[-1] + str(count)
-print(c)
 
+if len(c) < len(s):
+    result = c
+else:
+    result = s
 
 
 # Print the Output
-#print(result)
+print(result)
