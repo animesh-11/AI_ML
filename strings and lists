@@ -268,3 +268,32 @@ s = input()
 print(is_balanced(s))
 
 
+"""
+Write a function 'mask_account(account)' that takes a bank account number as a string.
+
+
+
+The function should return a masked version of the account number where:
+
+The first four digits remain unchanged.
+The last four digits remain unchanged.
+All characters between the first four and last four digits are replaced with the asterisk character (*).
+""""
+# Taking input
+account = input()
+
+def mask_account(account):
+    if len(account) > 8:
+        first_four = account[:4]
+        last_four = account[-4:]
+        masked_middle = "*" * (len(account) - 8)
+        return first_four + masked_middle + last_four
+    else:
+        return "Invalid account number"
+
+
+# Print the output
+print(mask_account(account))
+
+
+
