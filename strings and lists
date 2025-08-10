@@ -1,6 +1,6 @@
-
+"""
 Write a program to perform basic string compression using the counts of repeated characters. For each group of consecutive repeating characters in the input string, replace it with the character followed by the number of repetitions. If the compressed string is not shorter than the original string, return the original string.
-
+"""
 # Taking Input
 s = input()
 # Write your code here
@@ -23,3 +23,248 @@ else:
 
 # Print the Output
 print(result)
+
+"""
+ Write a program that takes a list of elements and finds the index of a given element in the list. If the element does not exist in the list, the program should return -1.
+
+
+
+Input Format:
+
+A list of integers.
+An integer to search for in the list.
+
+
+Output Format:
+
+The index of the element in the list, or -1 if the element is not found.
+"""
+# Import literal_eval library to safely evaluate string input as a Python
+from ast import literal_eval
+
+# Taking input
+lst = literal_eval(input())   
+search_element = int(input())  
+
+def find_index(lst, search_element):
+        # Write your code here
+        for i in range(len(lst)):
+                if lst[i] == search_element:
+                        return i
+        return -1
+                  
+# Print the output
+print(find_index(lst, search_element))
+
+"""
+Plaindrome
+"""
+# Taking input
+s=input()
+
+def is_palindrome(s):
+  s = s.replace(" ", "")
+  s = s.replace(",", "")
+  s = s.replace(".", "")
+  s = s.replace(":", "")
+  s = s.replace(";", "")
+  s = s.replace("!", "")
+  s = s.replace("?", "")
+  s = s.lower()
+
+  r = s[::-1]
+  if r == s:
+    return True
+  else:
+    return False
+
+
+# Print the output
+print(is_palindrome(s))
+
+"""
+Write a function ‘are_anagrams(str1, str2)’ that takes two strings ‘str1’ and ‘str2’ as input and returns True if they are anagrams of each other, and False otherwise. The function should be case-insensitive and should ignore spaces between words.
+
+
+
+An anagram is when two strings contain the same characters, but possibly in a different order.
+"""
+# Taking input
+str1 = input()
+str2 = input()
+
+def are_anagrams(str1, str2):
+    # Write your code here
+    str1 = str1.replace(" ", "")
+    str2 = str2.replace(" ", "")
+    str1 = str1.lower()
+    str2 = str2.lower()
+    str1 = ''.join(sorted(str1))
+    str2 = ''.join(sorted(str2))
+    
+    if (0 < len(str1) < 100) and (0 < len(str2) < 100):
+        if str1 == str2:
+            return True
+        else:
+            return False
+    else:
+        return False
+
+# Print the result
+print(are_anagrams(str1, str2))
+
+"""
+Write a function ‘max_product(lst)’ that takes a list ‘lst’ of integers and returns the maximum product of any two distinct elements from the list. The list can contain both positive and negative integers.
+"""
+# Import literal_eval library to safely evaluate string input as a Python
+from ast import literal_eval
+
+# Taking input  
+lst = literal_eval(input())
+
+def max_product(lst):
+    # Write your code here
+    max_product = 0
+    for i in range(len(lst)):
+        for j in range(i+1, len(lst)):
+            product = lst[i] * lst[j]
+            if product > max_product:
+                max_product = product
+    return max_product
+# Print the output
+print(max_product(lst))
+
+"""
+You are given two lists of integers; 'list1' and 'list2'. Merge these lists into one sorted list and return the median value.
+
+
+
+If the total number of elements is odd, return the middle element.
+If even, return the average of the two middle elements.
+
+
+This task requires handling both odd and even-length combined lists.
+"""
+
+# Import literal_eval library to safely evaluate string input as a Python
+from ast import literal_eval
+
+# Taking input
+list1 = literal_eval(input())
+list2 = literal_eval(input())
+
+def find_median_lists(list1, list2):
+    list3 = list1 + list2
+    list3.sort()
+
+    if len(list3) % 2 == 0:
+        median = (list3[len(list3)//2] + list3[len(list3)//2 - 1]) / 2
+    else:
+        median = list3[len(list3)//2]
+    return median
+
+# Print the output
+print(find_median_lists(list1, list2))
+
+"""
+Write a program that defines a function 'count_above_average(numbers)' which returns the count of elements in the list that are strictly greater than the average of all elements
+"""
+# Import literal_eval library to safely evaluate string input as a Python
+from ast import literal_eval
+
+# Taking input
+numbers = literal_eval(input())
+
+def count_above_average(numbers):
+    avg = sum(numbers) / len(numbers)
+    count = 0
+    for i in numbers:
+        if i > avg:
+            count += 1
+    return count
+    # Write your code here
+
+# Print the output
+print(count_above_average(numbers))
+
+""""
+Write a function ‘remove_duplicates(lst)’ that removes duplicates from a sorted list. The function should modify the list in-place and return the length of the list after removing duplicates.
+"""
+# Taking input
+lst = literal_eval(input())
+
+def remove_duplicates(lst):
+    unique_lst = []
+    for item in lst:
+        if item not in unique_lst:
+            unique_lst.append(item)
+    return len(unique_lst)
+    # Write your code here
+
+# Print the output
+print(remove_duplicates(lst))
+
+"""
+Write a function ‘is_balanced(s)’ that checks if the parentheses in the given string are balanced. The function should also check for balanced brackets [] and curly braces {} in addition to the regular parentheses ().
+
+
+
+A string is considered balanced if:
+
+Every opening bracket has a corresponding closing bracket.
+The brackets are closed in the correct order.
+
+
+Input Format:
+
+A single string ‘s’ consisting of characters such as (, ), {, }, [, ], and other non-bracket characters.
+
+
+
+Output Format:
+
+True if the string has balanced brackets and False otherwise.
+"""
+
+def is_balanced(s):
+    """
+    Checks if the parentheses, brackets, and curly braces in a string are balanced using only a list for mapping.
+
+    Args:
+        s: The input string.
+
+    Returns:
+        True if the string has balanced brackets, False otherwise.
+    """
+    stack = []
+    # Using a list of tuples for mapping (closing, opening)
+    mapping = [(")", "("), ("]", "["), ("}", "{")]
+
+    for char in s:
+        is_opening = False
+        for close_char, open_char in mapping:
+            if char == open_char:  # Check if it's an opening bracket
+                stack.append(char)
+                is_opening = True
+                break  # Found an opening bracket, move to the next character
+
+        if not is_opening: # It's not an opening bracket, check if it's a closing bracket
+            is_closing = False
+            for close_char, open_char in mapping:
+                if char == close_char:  # Check if it's a closing bracket
+                    is_closing = True
+                    if not stack or stack.pop() != open_char:
+                        return False  # Mismatched or no corresponding opening bracket
+                    break # Found a closing bracket, move to the next character
+
+            # If it's neither an opening nor closing bracket, just ignore it.
+
+    return not stack  # True if stack is empty (all brackets matched)
+
+# Taking input
+s = input()
+
+# Print the output
+print(is_balanced(s))
+
+
