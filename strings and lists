@@ -295,5 +295,194 @@ def mask_account(account):
 # Print the output
 print(mask_account(account))
 
+"""
+Write a program that extracts all the digits from a given string and returns them as a list of integers.
+"""
+# Taking input
+s = input()
+
+def extract_digits(s):
+    digits_list = []
+    
+    for char in s:
+        if char.isdigit():
+            digits_list.append(int(char))
+    return digits_list
+
+# Print the output
+print(extract_digits(s))
+
+"""
+Write a program that flattens a nested list into a single list using List Comprehension. The program should take the nested list as input and return the flattened version of the list.
+
+
+
+Input Format:
+
+A nested list.
+
+
+
+Output Format:
+
+A flattened list that contains all the elements from the sublists of lists in the same order.
+
+
+
+Constraints:
+
+The input is a nested list (list of lists).
+Both the outer list and its sublists can be empty.
+Sublist elements can be of any data type (e.g., Integers, Strings, Floats, Booleans).
+
+
+
+
+Sample Input:
+
+[[1, 2, 3], [4, 5], [6]]
+
+
+
+Sample Output:
+
+[1, 2, 3, 4, 5, 6]
+""
+# Import the literal_eval library to safely evaluate string input as a Python 
+from ast import literal_eval
+
+# Taking input
+lists = literal_eval(input())
+
+def flatten_lists(lists):
+    flat_list = [item for sublist in lists for item in sublist]
+    return flat_list
+    # Write your code here
+
+# Print the output
+print(flatten_lists(lists))
+
+"""
+Write a program that merges two sorted lists of integers into a single sorted list. The merged list should contain all elements from both lists, sorted in ascending order. 
+
+
+
+Input Format:
+
+Two sorted lists of integers, each sorted in ascending order.
+The lists can contain any number of integers and will not contain nested lists.
+
+
+Output Format:
+
+A single list containing all the elements from both input lists, sorted in ascending order.
+"""
+# Import the literal_eval function from the ast library to safely evaluate string input as a Python list
+from ast import literal_eval
+
+# Taking input  
+list1 = literal_eval(input())
+list2 = literal_eval(input())
+
+def merge_sorted_lists(list1, list2):
+    merged_list = list1 + list2
+    merged_list.sort()
+    return merged_list
+    
+
+# Print the output
+print(merge_sorted_lists(list1, list2))
+
+"""
+Given two strings s and t, write a program to determine if they are isomorphic.
+
+
+
+Two strings 's' and 't' are isomorphic if the characters in 's' can be replaced to get 't'.
+
+
+
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.
+
+
+
+Input Format:
+
+The program expects two strings as input.
+
+
+
+Output Format:
+
+True if two strings are isomorphic, False otherwise.
+"""
+# Taking input
+s = input()
+t = input()
+
+def are_isomorphic(s, t):
+    if len(s) != len(t):
+        return False
+
+    s_map = [] # List to store mappings from s to t
+    t_map = [] # List to store mappings from t to s
+
+    for i in range(len(s)):
+        char_s = s[i]
+        char_t = t[i]
+
+        # Check mapping from s to t using lists
+        found_s = False
+        for mapping in s_map:
+            if mapping[0] == char_s:
+                if mapping[1] != char_t:
+                    return False
+                found_s = True
+                break
+        if not found_s:
+            s_map.append((char_s, char_t))
+
+        # Check mapping from t to s using lists
+        found_t = False
+        for mapping in t_map:
+            if mapping[0] == char_t:
+                if mapping[1] != char_s:
+                    return False
+                found_t = True
+                break
+        if not found_t:
+            t_map.append((char_t, char_s))
+
+    return True
+
+# Print the Output 
+if are_isomorphic(s, t):
+    print("True")
+else:
+    print("False")
+
+"""
+You are given two strings, 's1' and 's2'. Write a program to check if 's2' is a rotation of 's1'.
+
+
+
+Two strings are said to be rotations of each other if they contain the same characters in the same order but starting from a different position and wrapping around. For example, "erbottlewat" is a rotation of "waterbottle" because the characters from the start have been shifted to the end without changing their order.
+"""
+
+# Taking Input
+s1 = input()
+s2 = input()
+
+# Write your code here
+if len(s1) != len(s2):
+        print("No")
+else:
+    s1_double = s1 + s1
+    if s2 in s1_double:
+        print("Yes")
+    else:
+        print("No")
+
+
 
 
